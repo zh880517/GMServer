@@ -75,7 +75,7 @@ bool XmlTableLoader::Next()
 	return true;
 }
 
-bool XmlTableLoader::GetVec(const char* pAttribute, std::vector<std::string>& vOut, char seq)
+bool XmlTableLoader::GetVec(const char* pAttribute, std::vector<std::string>& vOut, const std::string& seq)
 {
 	if (m_pXmlCurNode == nullptr)
 		return false;
@@ -83,6 +83,6 @@ bool XmlTableLoader::GetVec(const char* pAttribute, std::vector<std::string>& vO
 	if (pAtt == nullptr)
 		return false;
 
-	StringHelper::Split(pAtt->value(), vOut, seq);
+	StringUtils::splitString(pAtt->value(), seq, true, vOut);
 	return true;
 }

@@ -101,7 +101,8 @@ workspace "Server"
 			objdir(ObjPath.."/CoreLib/Utils/%{cfg.buildcfg}")
 			includedirs {
 				"CoreLib/Utils",
-				"ThirdParty/rapidxml"
+				"ThirdParty/rapidxml",
+				"ThirdParty/MySql/include"
 			}
 			files { 
 				"CoreLib/Utils/**.h",

@@ -3,7 +3,7 @@
 #include <array>
 #include <rapidxml.hpp>
 #include <rapidxml_utils.hpp>
-#include "StringHelper.h"
+#include "StringUtils.h"
 
 class XmlTableLoader
 {
@@ -27,7 +27,7 @@ public:
 		rapidxml::xml_attribute<>* pAtt = m_pXmlCurNode->first_attribute(pAttribute);
 		if (pAtt == nullptr)
 			return false;
-		StringHelper::get(pAtt->value(), t);
+		StringUtils::get(pAtt->value(), t);
 		return true;
 	}
 
@@ -39,7 +39,7 @@ public:
 		if (pAtt == nullptr)
 			return false;
 		std::vector<std::string> vOut;
-		StringHelper::Split(pAtt->value(), vOut, ':');
+		StringUtils::splitString(pAtt->value(), ":", true, vOut);
 		return true;
 	}
 
@@ -52,7 +52,7 @@ public:
 			for (auto& it: vStr)
 			{
 				T t;
-				StringHelper::get(it.c_str(), t);
+				StringUtils::get(it.c_str(), t);
 				vOut.push_back(t);
 			}
 			return true;
@@ -93,13 +93,13 @@ public:
 		size_t iSize = _Size > vOut.size() ? vOut.size() : _Size;
 		for (size_t i = 0; i < iSize; ++i)
 		{
-			StringHelper::get(vOut[i].c_str(), vArray[i]);
+			StringUtils::get(vOut[i].c_str(), vArray[i]);
 		}
 		return true;
 	}
 
 	template <typename T, size_t _Size>
-	bool	GetVecArray(const char* pAttribute, std::vector<std::array<T, _Size>>& vArray, char seq1, char seq2)
+	bool	GetVecArray(const char* pAttribute, std::vector<std::array<T, _Size>>& vArray, const std::string& seq1, const std::string& seq2)
 	{
 		std::vector < std::string > vOut;
 
@@ -107,20 +107,20 @@ public:
 		for (auto& it:vOut)
 		{
 			std::vector<std::string> vSeq;
-			StringHelper::Split(it, vSeq, seq2);
+			StringUtils::splitString(it, seq2, true, vSeq);
 
 			size_t iSize = _Size > vSeq.size() ? vSeq.size() : _Size;
 			std::array<T, _Size> vTemp;
 			for (size_t i = 0; i < iSize; ++i)
 			{
-				StringHelper::get(vSeq[i].c_str(), vTemp[i]);
+				StringUtils::get(vSeq[i].c_str(), vTemp[i]);
 			}
 			vArray.push_back(vTemp);
 		}
 		return true;
 	}
 
-	bool	GetVec(const char* pAttribute, std::vector<std::string>& vOut, char seq);
+	bool	GetVec(const char* pAttribute, std::vector<std::string>& vOut, const std::string& seq);
 	
 
 private:
