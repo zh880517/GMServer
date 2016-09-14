@@ -115,6 +115,14 @@ workspace "Server"
 			targetdir("lib/"..OutPath) --生成文件目录
 			location(BuilPath.."/CoreLib/LibActor") --工程目录
 			objdir(ObjPath.."/CoreLib/LibActor/%{cfg.buildcfg}")
+			defines{
+				"BOOST_DATE_TIME_SOURCE", 
+				"BOOST_ASIO_NO_LIB", 
+				"BOOST_SYSTEM_NO_LIB" , 
+				"BOOST_REGEX_NO_LIB", 
+				"BOOST_ERROR_CODE_HEADER_ONLY", 
+				"BOOST_SYSTEM_NO_DEPRECATED"
+			}
 			includedirs {
 				"CoreLib/",
 				"ThirdParty/boost_1_61_0"

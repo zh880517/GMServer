@@ -12,8 +12,10 @@ namespace ActorLite
 		, m_pIOPool(pPool)
 	{
 		m_pSession = std::make_shared< BoostNet::TCPSession>(m_pIOPool->GetIOService());
-		std::function<void()> function = std::bind(&EndPoint::OnDisconnect, this);
-		m_pSession->SetDisconnctHandle(function);
+		auto self(shared_from_this());
+		m_pSession->SetDisconnctHandle([this, self]() {
+			OnDisconnect();
+		});
 		m_bShutDown.store(false);
 	}
 

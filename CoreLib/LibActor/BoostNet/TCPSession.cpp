@@ -62,7 +62,7 @@ namespace BoostNet
 		});
 	}
 
-	void TCPSession::SetDisconnctHandle(std::function<void()> & handle)
+	void TCPSession::SetDisconnctHandle(const std::function<void()> & handle)
 	{
 		m_OnDisconnectHandle = handle;
 	}

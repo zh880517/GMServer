@@ -23,7 +23,7 @@ namespace BoostNet
 
 		void				ConnectServer(AsioTCP::resolver::iterator endpoint_iterator, const std::function<void(bool)>& onConnetResult);
 
-		void				SetDisconnctHandle(std::function<void()> & handle);
+		void				SetDisconnctHandle(const std::function<void()> & handle);
 
 		void				SetOnMsgHandle(std::function<void(NetPacket*)>& handle);
 
