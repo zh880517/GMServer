@@ -2,12 +2,12 @@
 #include <stdio.h>
 #include <assert.h>
 
-#ifndef GW_ASSERT
-#define GW_ASSERT(condition)  if (!(condition)) AssertUtils::Fail(__FILE__, __LINE__); else { }
+#ifndef ASSERT_UTILS
+#define ASSERT_UTILS(condition)  if (!(condition)) AssertUtils::Fail(__FILE__, __LINE__); else { }
 #endif
 
-#ifndef GW_ASSERT_MSG
-#define GW_ASSERT_MSG(condition, msg)       if (!(condition)) AssertUtils::Fail(__FILE__, __LINE__, msg); else { }
+#ifndef ASSERT_UTILS_MSG
+#define ASSERT_UTILS_MSG(condition, msg)       if (!(condition)) AssertUtils::Fail(__FILE__, __LINE__, msg); else { }
 #endif
 
 class AssertUtils

@@ -29,3 +29,4 @@
 *.app
 /Build/vs2015
 /lib/Debug_X32
+/ThirdParty/boost*

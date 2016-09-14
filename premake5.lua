@@ -109,3 +109,17 @@ workspace "Server"
 				"CoreLib/Utils/**.cpp" 
 			}
 		
+		project "LibActor"
+			kind "StaticLib" 
+			language "C++" 
+			targetdir("lib/"..OutPath) --生成文件目录
+			location(BuilPath.."/CoreLib/LibActor") --工程目录
+			objdir(ObjPath.."/CoreLib/LibActor/%{cfg.buildcfg}")
+			includedirs {
+				"CoreLib/",
+				"ThirdParty/boost_1_61_0"
+			}
+			files { 
+				"CoreLib/LibActor/**.h",
+				"CoreLib/LibActor/**.cpp" 
+			}
