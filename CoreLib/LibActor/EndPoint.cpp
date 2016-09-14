@@ -53,7 +53,7 @@ namespace ActorLite
 		AsioTCP::resolver resolver(m_pIOPool->GetIOService());
 		auto endpoint_iterator = resolver.resolve({ m_strIP, m_strPort });
 		auto self(shared_from_this());
-		std::function<void(bool)> function = [this, self](bool bSucc) {
+		m_pSession->ConnectServer(endpoint_iterator, [this, self](bool bSucc) {
 			if (!bSucc && !m_bShutDown.load())
 			{
 				std::cout << "Connect to channel Server IP = " << m_strIP << ", Port = " << m_strPort << " Fail!" << std::endl;
@@ -64,8 +64,7 @@ namespace ActorLite
 				std::function<void(BoostNet::NetPacket*)> funOnMsg = std::bind(&EndPoint::OnNewMsg, self, std::placeholders::_1);
 				m_pSession->SetOnMsgHandle(funOnMsg);
 			}
-		};
-		m_pSession->ConnectServer(endpoint_iterator, function);
+		});
 	}
 
 	void EndPoint::OnDisconnect()
