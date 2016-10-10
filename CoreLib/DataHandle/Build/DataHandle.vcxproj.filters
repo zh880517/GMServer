@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="DataTransfer">
+      <UniqueIdentifier>{6477AD90-50DA-3C35-F95F-75EBE5A108B8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MySqlAdapter">
+      <UniqueIdentifier>{9C3EB0FC-88A1-3FA1-3127-78571D690B24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RedisAdapter">
+      <UniqueIdentifier>{BDD5CF9C-A938-5F41-52BE-97F73E002BC4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TData">
+      <UniqueIdentifier>{3300160E-9F14-3EBF-6896-E11ED4693AF0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\DataTransfer\DataTransfer.h">
+      <Filter>DataTransfer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MySqlAdapter\util_mysql.h">
+      <Filter>MySqlAdapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\RedisAdapter\RedisAdapter.h">
+      <Filter>RedisAdapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\RedisAdapter\RedisBuffer.h">
+      <Filter>RedisAdapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\RedisAdapter\RedisListen.h">
+      <Filter>RedisAdapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\RedisAdapter\RedisSubMgr.h">
+      <Filter>RedisAdapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\RedisAdapter\RedisSyncData.h">
+      <Filter>RedisAdapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\RedisAdapter\RedisWrap.h">
+      <Filter>RedisAdapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TData\IBase.h">
+      <Filter>TData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TData\IDataAdapter.h">
+      <Filter>TData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TData\StringValue.h">
+      <Filter>TData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TData\SyncValue.h">
+      <Filter>TData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TData\TRepeated.h">
+      <Filter>TData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TData\TStruct.h">
+      <Filter>TData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TData\TValue.h">
+      <Filter>TData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TData\keyFieldMgr.h">
+      <Filter>TData</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\DataTransfer\DataTransfer.cpp">
+      <Filter>DataTransfer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MySqlAdapter\util_mysql.cpp">
+      <Filter>MySqlAdapter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\RedisAdapter\RedisAdapter.cpp">
+      <Filter>RedisAdapter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\RedisAdapter\RedisBuffer.cpp">
+      <Filter>RedisAdapter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\RedisAdapter\RedisListen.cpp">
+      <Filter>RedisAdapter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\RedisAdapter\RedisSubMgr.cpp">
+      <Filter>RedisAdapter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\RedisAdapter\RedisWrap.cpp">
+      <Filter>RedisAdapter</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
