@@ -17,7 +17,7 @@ namespace BoostNet
 
 		void				Stop();
 
-		void				RegistStopSignalHandle(std::function<void(boost::system::error_code, int)>& handle);
+		void				RegistStopSignalHandle(const std::function<void(boost::system::error_code, int)>& handle);
 
 		Asio::io_service&	GetIOService();
 	private:

@@ -25,7 +25,7 @@ namespace BoostNet
 
 		void				SetDisconnctHandle(const std::function<void()> & handle);
 
-		void				SetOnMsgHandle(std::function<void(NetPacket*)>& handle);
+		void				SetOnMsgHandle(const std::function<void(NetPacket*)>& handle);
 
 		void				SendPacket(NetPacketPtr& pPacket);
 

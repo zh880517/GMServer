@@ -70,7 +70,7 @@ namespace BoostNet
 		return io_service;
 	}
 
-	void IOServicePool::RegistStopSignalHandle(std::function<void(boost::system::error_code, int)>& handle)
+	void IOServicePool::RegistStopSignalHandle(const std::function<void(boost::system::error_code, int)>& handle)
 	{
 		
 		boost::system::error_code ec;

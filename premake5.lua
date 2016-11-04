@@ -2,6 +2,7 @@
 local BuilPath = "Build/" .. _ACTION  --工程路径
 local ObjPath = "../ObjOut/" .. _ACTION  -- 编译中间文件输出目录
 local OutPath = "%{cfg.buildcfg}_%{cfg.platform}"
+local BoostDir = "../boost_1_60_0"
 
 workspace "Server"
 	configurations {
@@ -23,7 +24,8 @@ workspace "Server"
 	filter "configurations:Release"
 		defines { "NDEBUG" }
 		optimize "On" --开启优化选项
-
+	
+	--第三方库
 	group "ThirdParty"
    
 		project "libprotobuf"
@@ -76,7 +78,8 @@ workspace "Server"
 			objdir(ObjPath.."/ThirdParty/hiredis/%{cfg.buildcfg}")
 			defines{"_WINSOCK_DEPRECATED_NO_WARNINGS"}
 			files { "ThirdParty/hiredis_win/**.h", "ThirdParty/hiredis_win/**.cpp", "ThirdParty/hiredis_win/**.c"} --源码文件目录
-			
+
+	--核心库	
 	group "CoreLib"
 		
 		project "Math"
@@ -125,7 +128,7 @@ workspace "Server"
 			}
 			includedirs {
 				"CoreLib/",
-				"ThirdParty/boost_1_61_0"
+				BoostDir,
 			}
 			files { 
 				"CoreLib/LibActor/**.h",

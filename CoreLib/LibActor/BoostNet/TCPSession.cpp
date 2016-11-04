@@ -67,7 +67,7 @@ namespace BoostNet
 		m_OnDisconnectHandle = handle;
 	}
 
-	void TCPSession::SetOnMsgHandle(std::function<void(NetPacket*)>& handle)
+	void TCPSession::SetOnMsgHandle(const std::function<void(NetPacket*)>& handle)
 	{
 		m_OnMsgHandle = handle;
 	}

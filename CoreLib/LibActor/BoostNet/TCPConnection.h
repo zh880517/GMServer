@@ -15,13 +15,13 @@ namespace BoostNet
 		using Ptr = std::shared_ptr<TCPConnection>;
 
 		template<class HeadHandle>
-		void	ReadHead(char* pData, uint32_t iLen, HeadHandle& handle);
+		void	ReadHead(char* pData, uint32_t iLen, const HeadHandle& handle);
 
 		template<class BodyHandle>
-		void	ReadBody(char* pData, uint32_t iLen, BodyHandle& handle);
+		void	ReadBody(char* pData, uint32_t iLen, const BodyHandle& handle);
 
 		template<class WriteHandle>
-		void	WriteData(const char* pData, uint32_t iLen, WriteHandle& handle);
+		void	WriteData(const char* pData, uint32_t iLen, const WriteHandle& handle);
 
 		AsioTCP::socket& Socket();
 
@@ -32,19 +32,19 @@ namespace BoostNet
 	};
 
 	template<class WriteHandle>
-	void TCPConnection::WriteData(const char* pData, uint32_t iLen, WriteHandle& handle)
+	void TCPConnection::WriteData(const char* pData, uint32_t iLen, const WriteHandle& handle)
 	{
 		Asio::async_write(m_Socket, Asio::buffer((const void*)pData, iLen), handle);
 	}
 
 	template<class BodyHandle>
-	void TCPConnection::ReadBody(char* pData, uint32_t iLen, BodyHandle& handle)
+	void TCPConnection::ReadBody(char* pData, uint32_t iLen, const BodyHandle& handle)
 	{
 		Asio::async_read(m_Socket, Asio::buffer((void*)pData, iLen), handle);
 	}
 
 	template<class HeadHandle>
-	void TCPConnection::ReadHead(char* pData, uint32_t iLen, HeadHandle& handle)
+	void TCPConnection::ReadHead(char* pData, uint32_t iLen, const HeadHandle& handle)
 	{
 		Asio::async_write(m_Socket, Asio::buffer((void*)pData, iLen), handle);
 	}
